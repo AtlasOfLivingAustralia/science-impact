@@ -1,0 +1,24 @@
+Package: scienceimpact
+Type: Package
+Title: Quantifying ALA scientific impact
+Version: 0.1.0
+Authors@R:
+    c(person(given = "Martin",
+             family = "Westgate",
+             email = "martin.westgate@csiro.au",
+             role = c("aut", "cre")))
+Description: This is a test. 
+Depends: R (>= 4.1.0)
+Imports: 
+  pdftools,
+  namext,
+  galah,
+  dplyr
+Suggests:
+  testthat
+Remotes:
+  ropensci-archive/namext
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.1
