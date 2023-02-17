@@ -10,14 +10,13 @@ Authors@R:
 Description: This is a test. 
 Depends: R (>= 4.1.0)
 Imports: 
-  pdftools,
-  namext,
+  dplyr,
+  jsonlite,
   galah,
-  dplyr
+  pdftools,
+  tibble
 Suggests:
   testthat
-Remotes:
-  ropensci-archive/namext
 License: MIT
 Encoding: UTF-8
 LazyData: true

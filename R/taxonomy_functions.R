@@ -4,7 +4,7 @@
 #' @export
 
 taxon_frequencies <- function(file_path){
-  x <- namext::name_extract(file_path)$names
+  x <- name_extract(file_path)
   
   if(nrow(x) > 0){
     # find out whether any names are contractions of earlier names in same text
