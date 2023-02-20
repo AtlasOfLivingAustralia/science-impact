@@ -1,4 +1,6 @@
 .DS_Store
+/inst/si_workflow.R
+/data-raw
 
 # History files
 .Rhistory

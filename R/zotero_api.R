@@ -1,12 +1,21 @@
 #' Query the Zotero API
 #' 
 #' This is in early development. This help file needs fixing up.
+#' @importFrom dplyr bind_rows
 #' @importFrom glue glue
 #' @importFrom httr2 request
 #' @importFrom httr2 req_headers
 #' @importFrom httr2 req_perform
+#' @importFrom httr2 resp_body_json
 #' @export
 zotero_groups <- function(user_id, api_key){
+  
+  if(missing(user_id)){
+    stop("`user_id` is missing, with no default")}
+  
+  if(missing(api_key)){
+    stop("`api_key` is missing, with no default")}
+
   url <- glue("https://api.zotero.org/users/{user_id}/groups")
   
   group_list <- request(url) |>
@@ -26,13 +35,16 @@ zotero_groups <- function(user_id, api_key){
 }
 
 
+#' Zotero tag
+#'
+#' @export
 zotero_tags <- function(user_id, group_id, api_key){
   
   if(missing(user_id) & missing(group_id)){
     stop("one of `user_id` or `group_id` must be set")}
   
   if(!missing(user_id) & !missing(group_id)){
-    message("both `user_id` and `group_id` are set; defaulting to `user_id`")}
+    message("both `user_id` and `group_id` are set; defaulting to `group_id`")}
   
   if(missing(api_key)){
     stop("`api_key` is missing, with no default")} # note: this should only be needed for private repos
@@ -60,19 +72,22 @@ zotero_tags <- function(user_id, group_id, api_key){
 }
 
 
+#' Zotero items listed under a specific tag
+#'
+#' @export
 zotero_items_by_tag <- function(user_id, group_id, api_key, tag){
   
   if(missing(user_id) & missing(group_id)){
     stop("one of `user_id` or `group_id` must be set")}
   
   if(!missing(user_id) & !missing(group_id)){
-    message("both `user_id` and `group_id` are set; defaulting to `user_id`")}
+    message("both `user_id` and `group_id` are set; defaulting to `group_id`")}
   
   base_url <- "https://api.zotero.org"
   if(!missing(group_id)){
     url <- glue("{base_url}/groups/{group_id}/items?tag={tag}")
   }else{
-    url <- glue("{base_url}/users/{group_id}/items?tag={tag}")
+    url <- glue("{base_url}/users/{user_id}/items?tag={tag}")
   }
 
   req <- request(url) |>
@@ -97,4 +112,36 @@ zotero_items_by_tag <- function(user_id, group_id, api_key, tag){
   bind_rows()
 
   return(data_df)
+}
+
+
+#' Zotero attachments listed under a given itemKey
+#'
+#' @export
+zotero_attachments <- function(user_id, group_id, api_key, item_key){
+  
+  if(missing(user_id) & missing(group_id)){
+    stop("one of `user_id` or `group_id` must be set")}
+  
+  if(!missing(user_id) & !missing(group_id)){
+    message("both `user_id` and `group_id` are set; defaulting to `group_id`")}
+  
+  base_url <- "https://api.zotero.org"
+  if(!missing(group_id)){
+    url <- glue("{base_url}/groups/{group_id}/items/{item_key}/children")
+  }else{
+    url <- glue("{base_url}/users/{user_id}/items/{item_key}/file")
+  }
+  
+  req <- request(url) |>
+    req_headers("Zotero-API-Key" = api_key) |>
+    req_perform() |>
+    resp_body_json()
+  
+  file_url <- req[[1]]$links$enclosure$href
+  file_name <- req[[1]]$data$title
+  
+  result <- request(file_url) |> 
+    req_headers("Zotero-API-Key" = api_key) |>
+    req_perform(path = glue("./data-raw/{file_name}"))
 }
