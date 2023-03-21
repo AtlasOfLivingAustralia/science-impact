@@ -1,11 +1,46 @@
 ---
 title: "Science Impact"
+filters: 
+  - lightbox
+lightbox: auto
+execute:
+  echo: false
 ---
+
+```{r}
+#| include: false
+library(htmltools)
+source("R/card_functions.R")
+```
 
 This is a test website for highlighting scientific papers that reference the ALA.
 
 It is in development by the ALA Science & Decision Support Team.
 
+
+:::{.column-page}
+
 ```{r}
-1 + 1 # example codeblock
+#| echo: false
+tags$div(class = "row",# Create a row for 3 team-member cards
+         
+create_card(
+  person_page = "https://ala-images.s3.ap-southeast-2.amazonaws.com/store/c/9/e/2/4791caaf-18d5-4273-baf6-efeadd222e9c/original",
+  img_src = "images/card-images/collared-sparrowhawk.jfif",
+  headline = "Sparrowhawks do cool stuff and wear hats sometimes",
+  color1 = "#222322",
+  name = "a picture of a hawk"
+),
+
+create_card(
+  person_page = "https://ala-images.s3.ap-southeast-2.amazonaws.com/store/c/9/e/2/4791caaf-18d5-4273-baf6-efeadd222e9c/original",
+  img_src = "images/card-images/collared-sparrowhawk.jfif",
+  headline = "Sparrowhawks do cool stuff and wear hats sometimes",
+  color1 = "#be4521",
+  name = "a picture of a hawk"
+)
+
+)
 ```
+
+:::

@@ -1,0 +1,16 @@
+{
+  "hash": "f450f018056a519705711575586cf23c",
+  "result": {
+    "markdown": "---\ntitle: \"Changing farming climates – the future of growing peanuts\"\ndescription: |\n  Peanuts are a key source of our dietary protein. Climate change is shifting where we can grow this staple food. This study models and maps global future suitable cropping areas under our current climate change projections.\nauthor:\n  - name: \"author 1\"\n  - name: \"author 2\"\n  - name: \"author 3\"\ndate: \"2022-03-07\"\ntitle-block-banner: peanut-plant.jpg\ntoc: true\ntoc-location: left\ntoc-depth: 3\ncategories:\n  - Agriculture\n  - Climate change\nimage: peanut-plant.jpg\nfreeze: true\n---\n\n\n\n\n<!-- remove metadata section -->\n\n::: {.cell}\n<style type=\"text/css\">\n#title-block-header.quarto-title-block.default .quarto-title-meta {\n    display: none;\n}\n</style>\n:::\n\n\n\n<!-- Author card -->\n\nPeanuts are one of the richest sources of dietary protein - topping meat, dairy, eggs, and fish. They are also importantly non-perishable, able to be used by global aid industries in the fight against famine and crisis food shortages. Consequently, ensuring we have ready supply of an important plant-based protein such as peanut is important. Both agriculturalists and top export regions are likely to bear the brunt of holding a steady supply.  \n \nThere are a range of factors that influence the possible geographic boundary of agricultural crops, such as soil nutrients, structure, elevation and climate. They define the crops growth rate and overall quality, outlining where it is both physically and economically viable to produce them.  \n \nPeanuts in particular prefer dryland cropping and are sensitive to increased levels of rainfall. Currently - Africa, South America and Australasia are the regions with the best peanut growing conditions globally. \n \nIn Australia (and South America) peanut cropping is already impacted by naturally variable climate (stints of drought and increased rainfall) due to El Nino Southern Oscillation. Changing temperatures and increased stochastic events are likely to further impact the growth of peanuts in their already established cropping regions. \n\nUsing nearly two-thousand geographical occurrence data points from the Atlas of Living Australia (ALA) and the Global Biodiversity Information Facility (GBIF) alongside modelled climate change scenarios, Haerani et al. (2023) infer a global distribution of peanut crops under a changing climate. \n \nThey find that in the next century, suitable peanut growing regions are set to restrict substantially along the east and west coast, with northern New South Wales and south-east Queensland at the greatest loss by the year 2100.  \n\n\n::: {.cell}\n\n:::\n",
+    "supporting": [
+      "paper_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

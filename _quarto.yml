@@ -4,16 +4,15 @@ project:
 website:
   title: "ALA Science Impact"
   navbar:
-    left:
+    right:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: highlights.qmd
+        text: Highlighted papers
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
-
-editor: visual
 
