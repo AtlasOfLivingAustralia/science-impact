@@ -11,18 +11,37 @@ editor_options:
 library(ggplot2)
 library(magick)
 library(cowplot)
+library(ggtext)
+library(showtext)
+```
+
+```{r}
+# Add font
+font_add_google("Roboto", "roboto")
+showtext_auto(enable = TRUE)
 ```
 
 
 ```{r}
 text_size <- 30
 
+lab_long <- "**Termites: climate change winners? lal al lala lal lal a**"
+
 p <- ggplot() + 
-  annotate("text", 
-           x=0.5, 
-           y=0.5,
-           size = text_size,
-           label = stringr::str_wrap("the quick fox jumps over the lazy dog", text_size*0.5)) + 
+  geom_textbox(aes(x = 0.45,
+                   y = 0.6, 
+                   label = lab_long),
+               size = 15,
+               width = unit(27, "lines"),
+               stat = "unique", 
+               fontfamily = "Roboto",
+               fill = NA, 
+               box.colour = NA) +
+  #annotate("text", 
+           #x=0.5, 
+           #y=0.5,
+           #size = text_size,
+           #label = stringr::str_wrap("the quick fox jumps over the lazy dog", text_size*0.5)) + 
   geom_rect(aes(xmin = 0.5, xmax = 1, ymin = 0.1, ymax = 0.11),
            fill = "#E06E53",
            color = "NA") +
