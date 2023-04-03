@@ -1,7 +1,7 @@
 ---
 title: "Changing farming climates – the future of growing peanuts"
 description: |
-  Peanuts are a key source of our dietary protein. Climate change is shifting where we can grow this staple food. This study models and maps global future suitable cropping areas under our current climate change projections.
+
 author:
   - name: "author 1"
   - name: "author 2"
