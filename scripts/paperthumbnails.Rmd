@@ -9,32 +9,44 @@ editor_options:
 
 ```{r}
 library(ggplot2)
-library(magick)
-library(cowplot)
+#library(magick)
+#library(cowplot)
 library(ggtext)
-library(showtext)
+library(extrafont)
+```
+
+#note that for `geom_textbox` in `ggtext` to change fonts, fonts need to be locally installed on your system as well as in R. `showtext` function `font_add_google` won't allow geom_textbox to retrieve fonts as they are not saved in the right space. Download them onto your font system and then use the code below to import and load, as well as browse available fonts. I've used the Poppins font: (https://fonts.google.com/specimen/Poppins)
+
+```{r}
+#import and then load all fonts in your computer to r
+extrafont::font_import()
+loadfonts()
 ```
 
 ```{r}
-# Add font
-font_add_google("Roboto", "roboto")
-showtext_auto(enable = TRUE)
+#view all fonts available
+as_tibble(fonts())
 ```
 
 
-```{r}
-text_size <- 30
+examples: 
 
-lab_long <- "**Termites: climate change winners? lal al lala lal lal a**"
+using colours from images within the official ALA colour palette
+
+1. peanuts
+
+```{r}
+lab_long <- "**Peanut cropping under a changing climate**"
 
 p <- ggplot() + 
   geom_textbox(aes(x = 0.45,
-                   y = 0.6, 
+                   y = 0.55, 
                    label = lab_long),
-               size = 15,
+               size = 19,
                width = unit(27, "lines"),
                stat = "unique", 
-               fontfamily = "Roboto",
+               family = "Poppins",
+               colour = "#FFC557",
                fill = NA, 
                box.colour = NA) +
   #annotate("text", 
@@ -42,7 +54,48 @@ p <- ggplot() +
            #y=0.5,
            #size = text_size,
            #label = stringr::str_wrap("the quick fox jumps over the lazy dog", text_size*0.5)) + 
-  geom_rect(aes(xmin = 0.5, xmax = 1, ymin = 0.1, ymax = 0.11),
+  geom_rect(aes(xmin = 0.5, xmax = 1, ymin = 0.1, ymax = 0.13),
+           fill = "#9E9E9F",
+           color = "NA") +
+  scale_y_continuous(limits = c(0,1)) +
+  scale_x_continuous(limits = c(0, 1)) +
+theme(panel.border = element_blank(),
+       panel.background = element_rect(fill = "#B7CD96", color = NA),
+       plot.background = element_rect(fill = "#B7CD96"), #remove white space from x/y region
+       panel.grid = element_blank(), #remove labels, ticks etc. 
+       axis.text = element_blank(),
+       axis.ticks = element_blank(),
+       axis.title = element_blank(),
+       plot.margin = margin(0, 0, 0, 0, "cm")) #remove white space from right and top borders 
+p
+```
+
+```{r}
+ggsave(file = "peanuts.png")
+```
+
+
+2. termites 
+```{r}
+lab_long <- "**Termites: climate change winners?**"
+
+p <- ggplot() + 
+  geom_textbox(aes(x = 0.45,
+                   y = 0.55, 
+                   label = lab_long),
+               size = 19,
+               width = unit(27, "lines"),
+               stat = "unique", 
+               family = "Poppins",
+               colour = "#B8573E",
+               fill = NA, 
+               box.colour = NA) +
+  #annotate("text", 
+           #x=0.5, 
+           #y=0.5,
+           #size = text_size,
+           #label = stringr::str_wrap("the quick fox jumps over the lazy dog", text_size*0.5)) + 
+  geom_rect(aes(xmin = 0.5, xmax = 1, ymin = 0.1, ymax = 0.13),
            fill = "#E06E53",
            color = "NA") +
   scale_y_continuous(limits = c(0,1)) +
@@ -59,13 +112,84 @@ p
 ```
 
 ```{r}
-ggsave(file = "test.png")
+ggsave(file = "termites.png")
 ```
 
 
+3.  jacaranda trees
+
+```{r}
+text_size <- 30
+
+lab_long <- "**When do Jacaranda trees bloom?**"
+
+p <- ggplot() + 
+  geom_textbox(aes(x = 0.45,
+                   y = 0.55, 
+                   label = lab_long),
+               size = 19,
+               width = unit(27, "lines"),
+               stat = "unique", 
+               family = "Poppins",
+               colour = "#B7CD96",
+               fill = NA, 
+               box.colour = NA) +
+  geom_rect(aes(xmin = 0.5, xmax = 1, ymin = 0.1, ymax = 0.13),
+           fill = "#6BDAD5",
+           color = "NA") +
+  scale_y_continuous(limits = c(0,1)) +
+  scale_x_continuous(limits = c(0, 1)) +
+theme(panel.border = element_blank(),
+       panel.background = element_rect(fill = "#A191B2", color = NA),
+       plot.background = element_rect(fill = "#A191B2"), #remove white space from x/y region
+       panel.grid = element_blank(), #remove labels, ticks etc. 
+       axis.text = element_blank(),
+       axis.ticks = element_blank(),
+       axis.title = element_blank(),
+       plot.margin = margin(0, 0, 0, 0, "cm")) #remove white space from right and top borders 
+p
+```
+
+```{r}
+ggsave(file = "jacarandas.png")
+```
 
 
+4. mosquito
 
+```{r}
+text_size <- 30
 
+lab_long <- "**Mapping transmission risk: Japanese Encephalitis Virus (JEV)**"
 
+p <- ggplot() + 
+  geom_textbox(aes(x = 0.45,
+                   y = 0.55, 
+                   label = lab_long),
+               size = 15,
+               width = unit(27, "lines"),
+               stat = "unique", 
+               family = "Poppins",
+               colour = "#EEECEA",
+               fill = NA, 
+               box.colour = NA) +
+  geom_rect(aes(xmin = 0.5, xmax = 1, ymin = 0.1, ymax = 0.13),
+           fill = "#9E9E9F",
+           color = "NA") +
+  scale_y_continuous(limits = c(0,1)) +
+  scale_x_continuous(limits = c(0, 1)) +
+theme(panel.border = element_blank(),
+       panel.background = element_rect(fill = "#222322", color = NA),
+       plot.background = element_rect(fill = "#222322"), #remove white space from x/y region
+       panel.grid = element_blank(), #remove labels, ticks etc. 
+       axis.text = element_blank(),
+       axis.ticks = element_blank(),
+       axis.title = element_blank(),
+       plot.margin = margin(0, 0, 0, 0, "cm")) #remove white space from right and top borders 
+p
+```
+
+```{r}
+ggsave(file = "JEV.png")
+```
 
