@@ -13,6 +13,7 @@ library(ggplot2)
 #library(cowplot)
 library(ggtext)
 library(extrafont)
+library(tidyverse)
 ```
 
 #note that for `geom_textbox` in `ggtext` to change fonts, fonts need to be locally installed on your system as well as in R. `showtext` function `font_add_google` won't allow geom_textbox to retrieve fonts as they are not saved in the right space. Download them onto your font system and then use the code below to import and load, as well as browse available fonts. I've used the Poppins font: (https://fonts.google.com/specimen/Poppins)
