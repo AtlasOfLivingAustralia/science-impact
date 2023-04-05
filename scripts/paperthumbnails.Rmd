@@ -99,10 +99,12 @@ show_col(closest_matches)
 
 ## *** thumbnail generation
 
-In this area I need to auto generate the correct colours to insert inter their respective positions - for the textbox, the backing colour (plot and panel) and also the small rectangle accent in the right hand corner 
+In this area I need to place the correct colours (from `closest_matches') to insert into their respective positions - for the textbox, the backing colour (plot and panel) and also the small rectangle accent in the right hand corner. At this point, I could also just choose what colour goes where on the thumbnail myself. This might work better for colours that clash re. readability? This doesn't need to be a flow on automated process
+
+My image (https://images.ala.org.au/image/viewer?imageId=c90c357e-debc-4bcf-bd6c-914de23d4ae3) has generated these colours
 
 ```{r}
-lab_long <- "**An image has generate a palette for a thumbnail here!**"
+lab_long <- "**An image has generated the palette for this thumbnail!**"
 
 p <- ggplot() + 
   geom_textbox(aes(x = 0.45,
@@ -112,17 +114,17 @@ p <- ggplot() +
                width = unit(27, "lines"),
                stat = "unique", 
                family = "Poppins",
-               colour = "*****",
+               colour = "#6F6583",
                fill = NA, 
                box.colour = NA) +
   geom_rect(aes(xmin = 0.5, xmax = 1, ymin = 0.1, ymax = 0.13),
-           fill = "*****",
+           fill = "#DAA983",
            color = "NA") +
   scale_y_continuous(limits = c(0,1)) +
   scale_x_continuous(limits = c(0, 1)) +
 theme(panel.border = element_blank(),
-       panel.background = element_rect(fill = "*****", color = NA),
-       plot.background = element_rect(fill = "*****"), #remove white space from x/y region
+       panel.background = element_rect(fill = "#CCD2AA", color = NA),
+       plot.background = element_rect(fill = "#CCD2AA"), #remove white space from x/y region
        panel.grid = element_blank(), #remove labels, ticks etc. 
        axis.text = element_blank(),
        axis.ticks = element_blank(),
@@ -132,6 +134,9 @@ p
 ```
 
 
+```{r}
+ggsave(file = "flower.png")
+```
 
 
 ## other thumbnail examples: 
