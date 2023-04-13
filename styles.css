@@ -118,3 +118,10 @@
 .button:hover {
   background-color: #E06E53;
 }
+
+img.rounded {
+  object-fit: cover;
+  border-radius: 50% !important;
+  height: 195px;
+  width: 195px;
+}

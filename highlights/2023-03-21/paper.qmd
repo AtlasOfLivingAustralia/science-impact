@@ -7,7 +7,7 @@ author:
   - name: "author 2"
   - name: "author 3"
 date: "2022-03-07"
-title-block-banner: peanut-plant.jpg
+title-block-banner: "#B7CD96"
 toc: true
 toc-location: left
 toc-depth: 3
@@ -49,7 +49,18 @@ library(htmltools)
 
 ::: {.g-col-4}
 This column takes 1/3 of the page
+
+
+::: {layout-ncol="1" style="margin-left: auto; margin-right: auto;"}
+<img src="https://ala-images.s3.ap-southeast-2.amazonaws.com/store/7/7/0/b/0a95413d-25aa-4889-9c7d-39dd898eb077/original" class="rounded"/></img>
 :::
+
+::: figure-caption
+Left: [*Daviesa buxifolia* (Betty and Don Wood CC BY 3.0)](https://images.ala.org.au/image/viewer?imageId=0a95413d-25aa-4889-9c7d-39dd898eb077), Middle: [*Daviesa nova-anglica* (Janeteveh CC BY-NC 4.0))](https://images.ala.org.au/image/viewer?imageId=d8c159a6-1aa6-45f7-9f3d-b60da4eaa7cd), Right: [*Daviesa suaveolens* (Crisp, M.D. CC BY 3.0))](https://images.ala.org.au/image/viewer?imageId=a5ad9e21-5ce5-450b-baf7-d52ea3a6ffed)
+:::
+
+:::
+
 
 ::: {.g-col-8}
 Peanuts are one of the richest sources of dietary protein - topping meat, dairy, eggs, and fish. They are also importantly non-perishable, able to be used by global aid industries in the fight against famine and crisis food shortages. Consequently, ensuring we have ready supply of an important plant-based protein such as peanut is important. Both agriculturalists and top export regions are likely to bear the brunt of holding a steady supply.  
