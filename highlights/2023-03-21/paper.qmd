@@ -23,6 +23,7 @@ params:
   publication: Some Amazing Journal
   doi: https:://doi.org/aergoahrfg
   image_url: https://images.ala.org.au/
+  alt_text: An image
   color_1: #000000
   color_2: #ffffff
 ---
