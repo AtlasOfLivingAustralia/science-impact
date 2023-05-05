@@ -40,10 +40,12 @@
 
 /* Add some shadows to create a card effect */
 .paper-card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  height: 300px;
-  width: 100%;
-  overflow: hidden;
+  display: block;
+  width: 66%;
+  height: 400px;
+  margin-right: 10px;
+  background: #8C8;
+  counter-increment: paper-card;
 }
 
 .paper-card:hover {
@@ -58,9 +60,16 @@
 }
 
 .card-image {
+  background: -webkit-linear-gradient(left, 
+                rgba(0,0,0,0.65) 0%, 
+                rgba(0,0,0,0) 20%,
+                rgba(0,0,0,0) 80%,
+                rgba(0,0,0,0.65) 100%);
   opacity: 1;
-  margin-right: -257px;
-  margin-top: -22px;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   width: 460px;
   height: auto;
   transition: .5s ease;
@@ -73,26 +82,31 @@
 .headline {
   position: absolute;
   color: #ffffff !important;
-  font-size: 2.3rem;
+  font-size: 4rem;
   top: 0;
-  inline-size: 300px;
+  left:10px;
+  inline-size: 90%;
   text-align: left;
   line-height: 1.2;
   text-decoration: none !important;
+  object-fit: contain;
 }
 
 .headline-2 {
   position: absolute;
   color: #ffffff !important;
-  font-size: 2.3rem;
+  font-size: 4rem;
   top: 0;
-  inline-size: 300px;
+  left:10px;
+  inline-size: 90%;
   text-align: left;
   line-height: 1.2;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 1px;
   text-decoration: none !important;
+  object-fit: contain;
 }
+
 
 .job-title {
   color: #222322;

@@ -9,6 +9,8 @@ website:
         text: Home
       - href: highlights.qmd
         text: Highlighted papers
+      - href: research-test/research.qmd
+        text: Research
 
 format:
   html:

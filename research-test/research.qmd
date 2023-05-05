@@ -1,0 +1,62 @@
+---
+title: "Research highlights"
+format:
+  html:
+    css: [flickity.css, flickity-custom.css]
+    toc: false
+execute:
+  echo: false
+description: |
+  Schtuff
+---
+<!-- Flickity set-up -->
+<head>
+  <!-- other head stuff... -->
+  <link rel="stylesheet" href="flickity.css" media="screen">
+</head>
+<body>
+  <!-- all your great html... -->
+  <script src="flickity.pkgd.min.js"></script>
+</body>
+<!-- -->
+
+```{r}
+#| include: false
+library(htmltools)
+library(here)
+source(here("R", "card_functions.R"))
+```
+
+::: {#hero-banner .column-screen}
+::: {.grid .column-page}
+::: {.headline .g-col-lg-6 .g-col-12 .g-col-md-12}
+::: h1
+Gallery
+:::
+:::
+:::
+:::
+
+:::{.column-screen}
+
+<div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+
+:::{.paper-card style="background:#222322;" href="https://quarto.org/docs/visual-editor/content.html"}
+[Look out it's a hawk what do we do]{.headline}                  <!-- filled text -->               
+![](images/card-images/cane-toad-map.png){.card-image}   <!-- image -->
+[Look out it's a hawk what do we do]{.headline-2}                <!-- outlined text -->
+:::
+
+:::{.paper-card}
+[the hawk jumped over the moon]{.headline}
+![](images/card-images/collared-sparrowhawk.jfif){.card-image}
+[the hawk jumped over the moon]{.headline-2}
+:::
+
+:::{.paper-card style="background:#A191B2;"}
+:::
+
+
+</div>
+
+:::

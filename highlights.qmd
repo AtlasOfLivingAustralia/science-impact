@@ -9,6 +9,8 @@ listing:
     - "date desc"
     - "title desc"
   type: grid
+  image-height: 100%
+  grid-columns: 4
   date-format: medium
   categories: true
   page-size: 15
@@ -16,9 +18,12 @@ listing:
 title-block-banner: "#B7CD96"
 title-block-banner-color: body
 page-layout: full
+include-in-header: highlights/carousel.html
 theme: cosmo
+
 format: 
   html: 
+    css: [highlights/flickity.css, highlights/flickity-custom.css]
     grid:
       sidebar-width: 250px
       body-width: 1000px
